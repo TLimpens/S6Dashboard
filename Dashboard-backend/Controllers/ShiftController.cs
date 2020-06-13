@@ -39,6 +39,7 @@ namespace Dashboard_backend.Controllers
         [Route("getshiftsforuser/{userId}")]
         public Task<List<Shift>> GetShiftsForUser([FromHeader]string authorization, int userId)
         {
+            var test = _shiftRepository.GetShiftForUserAsync(authorization, userId);
             return _shiftRepository.GetShiftForUserAsync(authorization, userId);
         }
     }

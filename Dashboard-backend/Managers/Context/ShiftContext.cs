@@ -5,6 +5,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net.Http;
+using System.Net.Http.Headers;
 using System.Threading.Tasks;
 
 namespace Dashboard_backend.Managers.Context
@@ -37,10 +38,11 @@ namespace Dashboard_backend.Managers.Context
                 List<Shift> resultShifts = new List<Shift>();
                 _client = new HttpClient();
 
-                _client.DefaultRequestHeaders.Add("Authorization", "Bearer " + autorization);
+                _client.DefaultRequestHeaders.Authorization =
+                    new AuthenticationHeaderValue("Bearer", autorization);
 
 
-                HttpResponseMessage res = await _client.GetAsync("https://localhost:44391/api/shift/getshiftsForUser/" + userId);
+            HttpResponseMessage res = await _client.GetAsync("https://localhost:44391/api/shift/getshiftsForUser/" + userId);
                 if (res.IsSuccessStatusCode)
                 {
                     var results = res.Content.ReadAsStringAsync().Result;
