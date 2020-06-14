@@ -15,27 +15,17 @@ namespace Dashboard_backend.Managers.Context
     {
         private HttpClient _client;
 
-        public Task<User> GetUser(int userId)
+        public Task<User> GetUserAsync(int userId)
         {
             throw new NotImplementedException();
         }
 
-        public Task<User> GetUserResource(int userId)
+        public Task<List<User>> GetUsersAsync()
         {
             throw new NotImplementedException();
         }
 
-        public Task<List<User>> GetUserResources()
-        {
-            throw new NotImplementedException();
-        }
-
-        public List<List<User>> GetUsers()
-        {
-            throw new NotImplementedException();
-        }
-
-        public async Task<User> PostUserLogin([FromBody] User user)
+        public async Task<User> PostUserLoginAsync([FromBody] User user)
         {
             User resultUser = new User();
             _client = new HttpClient();

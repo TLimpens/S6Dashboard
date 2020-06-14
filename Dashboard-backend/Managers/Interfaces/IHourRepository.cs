@@ -8,8 +8,8 @@ namespace Dashboard_backend.Managers.Interfaces
 {
     public interface IHourRepository
     {
-        Task<int> getMontlyWorkedHoursForUser(string authorization, int userId);
-        Task<int> getMontlyScheduledHoursForUser(string authorization, int userId);
+        Task<int> getMontlyWorkedHoursForUserAsync(string authorization, int userId);
+        Task<int> getMontlyScheduledHoursForUserAsync(string authorization, int userId);
 
 
     }

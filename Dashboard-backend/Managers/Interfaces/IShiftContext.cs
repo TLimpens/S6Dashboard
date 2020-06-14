@@ -9,9 +9,8 @@ namespace Dashboard_backend.Managers.Interfaces
     public interface IShiftContext
     {
         Task<Shift> GetShiftAsync(string token, int shiftId);
-
-        List<Shift> GetShifts(User user);
         Task<List<Shift>> GetShiftForUserAsync(string autorization, int userId);
+        Task<List<Shift>> GetAllUpcommingShfitsAsync(string autorization);
 
     }
 }

@@ -10,7 +10,8 @@ namespace Dashboard_backend.Managers.Interfaces
     {
         Task<Shift> GetShiftAsync(string token, int shiftId);
 
-        List<Shift> GetShifts(User user);
+        Task<List<Shift>> GetAllUpcommingShfitsAsync(string authorization);
+
 
         Task<List<Shift>> GetShiftForUserAsync(string authorization, int userId);
 

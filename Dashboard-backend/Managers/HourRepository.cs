@@ -17,14 +17,14 @@ namespace Dashboard_backend.Managers
             _hourContext = hourContext;
         }
 
-        public Task<int> getMontlyScheduledHoursForUser(string authorization, int userId)
+        public async Task<int> getMontlyScheduledHoursForUserAsync(string authorization, int userId)
         {
-            return _hourContext.getMontlyScheduledHoursForUser(authorization, userId);
+            return await _hourContext.getMontlyScheduledHoursForUserAsync(authorization, userId);
         }
 
-        public Task<int> getMontlyWorkedHoursForUser(string authorization, int userId)
+        public async Task<int> getMontlyWorkedHoursForUserAsync(string authorization, int userId)
         {
-            return _hourContext.getMontlyWorkedHoursForUser(authorization, userId);
+            return await _hourContext.getMontlyWorkedHoursForUserAsync(authorization, userId);
         }
     }
 }

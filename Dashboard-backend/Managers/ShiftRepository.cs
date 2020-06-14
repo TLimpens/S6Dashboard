@@ -17,19 +17,19 @@ namespace Dashboard_backend.Managers
             _shiftContext = shiftContext;
         }
 
-        public Task<Shift> GetShiftAsync(string token, int shiftId)
+        public async Task<List<Shift>> GetAllUpcommingShfitsAsync(string authorization)
         {
-            return _shiftContext.GetShiftAsync(token, shiftId);
+            return await _shiftContext.GetAllUpcommingShfitsAsync(authorization);
         }
 
-        public Task<List<Shift>> GetShiftForUserAsync(string authorization, int userId)
+        public async Task<Shift> GetShiftAsync(string token, int shiftId)
         {
-            return _shiftContext.GetShiftForUserAsync(authorization, userId);
+            return await _shiftContext.GetShiftAsync(token, shiftId);
         }
 
-        public List<Shift> GetShifts(User user)
+        public async Task<List<Shift>> GetShiftForUserAsync(string authorization, int userId)
         {
-            throw new NotImplementedException();
+            return await _shiftContext.GetShiftForUserAsync(authorization, userId);
         }
     }
 }

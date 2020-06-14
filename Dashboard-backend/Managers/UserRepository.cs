@@ -17,29 +17,19 @@ namespace Dashboard_backend.Managers
             _userContext = userContext;
         }
 
-        public Task<User> GetUser(int userId)
+        public async Task<User> GetUserAsync(int userId)
         {
-            throw new NotImplementedException();
+            return await _userContext.GetUserAsync(userId);
         }
 
-        public Task<User> GetUserResource(int userId)
+        public async Task<List<User>> GetUsersAsync()
         {
-            throw new NotImplementedException();
+            return await _userContext.GetUsersAsync();
         }
 
-        public Task<List<User>> GetUserResources()
+        public async Task<User> PostUserLoginAsync(User user)
         {
-            throw new NotImplementedException();
-        }
-
-        public Task<List<User>> GetUsers()
-        {
-            throw new NotImplementedException();
-        }
-
-        public Task<User> PostUserLogin(User user)
-        {
-            return _userContext.PostUserLogin(user);
+            return await _userContext.PostUserLoginAsync(user);
         }
     }
 }

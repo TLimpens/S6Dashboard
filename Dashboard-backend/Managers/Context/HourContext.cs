@@ -14,7 +14,7 @@ namespace Dashboard_backend.Managers.Context
     {
         private HttpClient _client;
 
-        public async Task<int> getMontlyScheduledHoursForUser(string authorization, int userId)
+        public async Task<int> getMontlyScheduledHoursForUserAsync(string authorization, int userId)
         {
             _client = new HttpClient();
 
@@ -31,7 +31,7 @@ namespace Dashboard_backend.Managers.Context
             return -1;
         }
 
-        public async Task<int> getMontlyWorkedHoursForUser(string authorization, int userId)
+        public async Task<int> getMontlyWorkedHoursForUserAsync(string authorization, int userId)
         {
             _client = new HttpClient();
 

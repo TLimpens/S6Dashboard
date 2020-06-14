@@ -21,16 +21,16 @@ namespace Dashboard_backend.Controllers
 
             [HttpGet]
             [Route("getMontlyWorkedHoursForUser/{userId}")]
-            public Task<int> getMontlyWorkedHoursForUser([FromHeader]string authorization, int userId)
+            public async Task<int> getMontlyWorkedHoursForUser([FromHeader]string authorization, int userId)
             {
-                return _hourRepository.getMontlyWorkedHoursForUser(authorization, userId);
+                return await _hourRepository.getMontlyWorkedHoursForUserAsync(authorization, userId);
             }
 
             [HttpGet]
             [Route("getMontlyScheduledHoursForUser/{userId}")]
-            public Task<int> getMontlyScheduledHoursForUser([FromHeader]string authorization, int userId)
+            public async Task<int> getMontlyScheduledHoursForUser([FromHeader]string authorization, int userId)
             {
-                return _hourRepository.getMontlyScheduledHoursForUser(authorization, userId);
+                return await _hourRepository.getMontlyScheduledHoursForUserAsync(authorization, userId);
             }
         }
     }

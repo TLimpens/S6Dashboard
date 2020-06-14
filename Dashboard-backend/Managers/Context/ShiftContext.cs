@@ -14,6 +14,27 @@ namespace Dashboard_backend.Managers.Context
     {
         private HttpClient _client;
 
+        public async Task<List<Shift>> GetAllUpcommingShfitsAsync(string autorization)
+        {
+            List<Shift> resultShifts = new List<Shift>();
+            _client = new HttpClient();
+
+            _client.DefaultRequestHeaders.Authorization =
+                new AuthenticationHeaderValue("Bearer", autorization);
+
+
+            HttpResponseMessage res = await _client.GetAsync("https://localhost:44391/api/shift/getallupcommingshifts");
+            if (res.IsSuccessStatusCode)
+            {
+                var results = res.Content.ReadAsStringAsync().Result;
+                resultShifts = JsonConvert.DeserializeObject<List<Shift>>(results);
+
+            }
+
+            return resultShifts;
+
+        }
+
         public async Task<Shift> GetShiftAsync(string token, int shiftId)
         {
             Shift resultShift = new Shift();
@@ -52,11 +73,6 @@ namespace Dashboard_backend.Managers.Context
 
                 return resultShifts;
             
-        }
-
-        public List<Shift> GetShifts(User user)
-        {
-            throw new NotImplementedException();
         }
 
     }

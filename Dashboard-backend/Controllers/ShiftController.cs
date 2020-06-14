@@ -23,24 +23,23 @@ namespace Dashboard_backend.Controllers
 
         [HttpGet]
         [Route("getallshifts")]
-        public string GetAllShifts(User user)
+        public async Task<List<Shift>> GetAllUpcommingShifts([FromHeader]string authorization)
         {
-            return "Test";
+            return await _shiftRepository.GetAllUpcommingShfitsAsync(authorization);
         }
 
         [HttpGet]
         [Route("getshift/{id}")]
-        public Task<Shift> GetShift([FromHeader]string authorization, int id)
+        public async Task<Shift> GetShift([FromHeader]string authorization, int id)
         {
-           return _shiftRepository.GetShiftAsync(authorization, id);
+           return await _shiftRepository.GetShiftAsync(authorization, id);
         }
 
         [HttpGet]
         [Route("getshiftsforuser/{userId}")]
-        public Task<List<Shift>> GetShiftsForUser([FromHeader]string authorization, int userId)
+        public async Task<List<Shift>> GetShiftsForUser([FromHeader]string authorization, int userId)
         {
-            var test = _shiftRepository.GetShiftForUserAsync(authorization, userId);
-            return _shiftRepository.GetShiftForUserAsync(authorization, userId);
+            return await _shiftRepository.GetShiftForUserAsync(authorization, userId);
         }
     }
 

@@ -22,23 +22,23 @@ namespace Dashboard_backend.Controllers
 
         [HttpGet]
         [Route("getUsers")]
-        public Task<List<User>> GetUserS()
+        public async Task<List<User>> GetUserS()
         {
-            return _userRepository.GetUsers();
+            return await _userRepository.GetUsers();
         }
 
         [HttpGet]
         [Route("getUser/{id}")]
-        public Task<User> GetUser(int id)
+        public async Task<User> GetUser(int id)
         {
-            return _userRepository.GetUser(id);
+            return await _userRepository.GetUser(id);
         }
 
         [HttpPost]
         [Route("postUserLogin")]
-        public Task<User> PostUserLogin([FromBody] User user)
+        public async Task<User> PostUserLogin([FromBody] User user)
         {
-            return _userRepository.PostUserLogin(user);
+            return await _userRepository.PostUserLogin(user);
         }
     }
 }
